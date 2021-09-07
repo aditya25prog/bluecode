@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <title>Php syntax and logics explained</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <style type="text/css">
+    .contentBox{
+      padding: 50px;
+    }
+  </style>
+  <style type="text/css">@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu7mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu7WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
+  <style type="text/css">@font-face{font-family:'Material Icons';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/materialicons/v87/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');}.material-icons{font-family:'Material Icons';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;}</style>
+  <script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202109010101/reactive_library_fy2019.js"></script><script src="https://www.googletagservices.com/activeview/js/current/osd.js"></script><script src="https://partner.googleadservices.com/gampad/cookie.js?domain=www.codewithharry.com&amp;callback=_gfp_s_&amp;client=ca-pub-9655830461045889&amp;cookie=ID%3Dbf13f1cfa3b596e8-22358277a2ca0036%3AT%3D1627835234%3ART%3D1627835234%3AS%3DALNI_MZqRXquElCeIOTAZ0wrnl0X8hGc3g"></script><script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/wxAi4AKLXL2kBAvXqI4XLSWS/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-Me/xBbBvuuItTu/oAnI7UkdtjfgtuZXbaYLJKHlUuMOlG+7MivghWo/kKOwhQ7pf"></script><script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en.OxsXq8UvEOs.O/m=auth2/rt=j/sv=1/d=1/ed=1/am=AQ/rs=AGLTcCN7FQWUE2nltJhOBLbHOeQiriRsIg/cb=gapi.loaded_0" async=""></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202109010101/show_ads_impl_fy2019.js" id="google_shimpl"></script><script data-ad-client="ca-pub-9655830461045889" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" data-checked-head="true"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-60726752-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-60726752-3');
+  </script>
+<link rel="stylesheet" href="styles.bc31d58d1fffbdf64e6b.css"><meta name="keywords" content="php cheatsheet for php beginners"><meta name="description" content="Php Cheatsheet for all php developers"><style>.content[_ngcontent-serverApp-c53]{min-height:calc(100vh - 56px - 80px)}</style><style>[_nghost-serverApp-c50]{position:relative;display:block;pointer-events:none}[_nghost-serverApp-c50]   .ngx-spinner[_ngcontent-serverApp-c50]{transition:350ms linear;display:block;position:absolute;top:5px;left:0}[_nghost-serverApp-c50]   .ngx-spinner[_ngcontent-serverApp-c50]   .ngx-spinner-icon[_ngcontent-serverApp-c50]{width:14px;height:14px;border:2px solid transparent;border-top-color:inherit;border-left-color:inherit;border-radius:50%;-webkit-animation:.4s linear infinite loading-bar-spinner;animation:.4s linear infinite loading-bar-spinner}[_nghost-serverApp-c50]   .ngx-bar[_ngcontent-serverApp-c50]{transition:width 350ms;position:absolute;top:0;left:0;width:100%;height:2px;border-bottom-right-radius:1px;border-top-right-radius:1px}[dir=rtl]   [_nghost-serverApp-c50]   .ngx-bar[_ngcontent-serverApp-c50]{right:0;left:unset}[fixed=true][_nghost-serverApp-c50]{z-index:10002}[fixed=true][_nghost-serverApp-c50]   .ngx-bar[_ngcontent-serverApp-c50]{position:fixed}[fixed=true][_nghost-serverApp-c50]   .ngx-spinner[_ngcontent-serverApp-c50]{position:fixed;top:10px;left:10px}[dir=rtl]   [fixed=true][_nghost-serverApp-c50]   .ngx-spinner[_ngcontent-serverApp-c50]{right:10px;left:unset}@-webkit-keyframes loading-bar-spinner{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes loading-bar-spinner{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}</style><style>.brandLogo[_ngcontent-serverApp-c51]{max-width:39px;margin:0 13px}li[_ngcontent-serverApp-c51]   a.nav-link[_ngcontent-serverApp-c51]{color:#fff}.notificationImg[_ngcontent-serverApp-c51]{width:30px;filter:invert(1)}.notification-bell[_ngcontent-serverApp-c51]{position:absolute;right:0}.dropdown-toggle[_ngcontent-serverApp-c51]{font-weight:700}.dropdown-menu-notify[_ngcontent-serverApp-c51]{overflow-y:scroll;overflow-x:hidden;max-height:400px;top:60px;right:-1px;left:unset;width:460px;box-shadow:0 5px 7px -1px #c1c1c1;padding:0}ul[_ngcontent-serverApp-c51]   ul[_ngcontent-serverApp-c51]   a[_ngcontent-serverApp-c51]{background:transparent}.dropdown-menu-notify[_ngcontent-serverApp-c51]:before{content:"";position:absolute;top:-20px;right:12px;border:10px solid transparent;border-bottom-color:#fff}.head-notify[_ngcontent-serverApp-c51]{padding:5px 15px;border-radius:3px 3px 0 0}.footer-notify[_ngcontent-serverApp-c51]{padding:5px 15px;border-radius:0 0 3px 3px}.notification-box-notify[_ngcontent-serverApp-c51]{padding:10px 0}.bg-gray-notify[_ngcontent-serverApp-c51]{background-color:#eee}@media (max-width:640px){.dropdown-menu-notify[_ngcontent-serverApp-c51]{top:50px;left:-16px;width:290px}.nav-notify[_ngcontent-serverApp-c51]{display:block}.nav-notify[_ngcontent-serverApp-c51]   .nav-item-notify[_ngcontent-serverApp-c51], .nav-notify[_ngcontent-serverApp-c51]   .nav-item-notify[_ngcontent-serverApp-c51]   a[_ngcontent-serverApp-c51]{padding-left:0}.message-notify[_ngcontent-serverApp-c51]{font-size:13px}}.loginError[_ngcontent-serverApp-c51]{color:red;padding:3px 2px}div.alert[_ngcontent-serverApp-c51]{margin:0}input.ng-touched.ng-invalid[_ngcontent-serverApp-c51], textarea.ng-touched.ng-invalid[_ngcontent-serverApp-c51]{border-color:red}.forgot[_ngcontent-serverApp-c51]{font-size:14px;color:#000;text-align:left;text-decoration:underline;cursor:pointer;padding:16px 0}.googleAuth[_ngcontent-serverApp-c51]{width:46%;cursor:pointer;border:1px solid #000;border-radius:3px;background:#60a3dd;margin-top:1px}.or[_ngcontent-serverApp-c51]{font-weight:500;font-size:19px}.modal-header[_ngcontent-serverApp-c51]{display:flex;align-items:center;justify-content:center;flex-direction:column}.modal-header[_ngcontent-serverApp-c51]   span[_ngcontent-serverApp-c51]{position:absolute;top:15px;right:20px}.navbar-brand[_ngcontent-serverApp-c51]{margin:0;padding:0}</style><script async="" src="https://apis.google.com/js/platform.js" gapi_processed="true"></script><style>footer[_ngcontent-serverApp-c52]{color:#fff}</style><script src="https://www.google.com/recaptcha/api.js?onload=ngx_captcha_onload_callback&amp;render=explicit" async="" defer=""></script><style>div.code-toolbar{position:relative}div.code-toolbar>.toolbar{position:absolute;top:.3em;right:.2em;transition:opacity .3s ease-in-out;opacity:0}div.code-toolbar:focus-within>.toolbar,div.code-toolbar:hover>.toolbar{opacity:1}div.code-toolbar>.toolbar .toolbar-item{display:inline-block}div.code-toolbar>.toolbar a{cursor:pointer}div.code-toolbar>.toolbar button{background:none;border:0;color:inherit;font:inherit;line-height:normal;overflow:visible;padding:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}div.code-toolbar>.toolbar a,div.code-toolbar>.toolbar button,div.code-toolbar>.toolbar span{color:#bbb;font-size:.8em;padding:0 .5em;background:#f5f2f0;background:hsla(0,0%,87.8%,.2);box-shadow:0 2px 0 0 rgba(0,0,0,.2);border-radius:.5em}div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-toolbar>.toolbar button:focus,div.code-toolbar>.toolbar button:hover,div.code-toolbar>.toolbar span:focus,div.code-toolbar>.toolbar span:hover{color:inherit;text-decoration:none}code[class*=language-],pre[class*=language-]{color:#f8f8f2;background:none;text-shadow:0 1px rgba(0,0,0,.3);font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;tab-size:4;-webkit-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto;border-radius:.3em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#272822}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#8292a2}.token.punctuation{color:#f8f8f2}.token.namespace{opacity:.7}.token.constant,.token.deleted,.token.property,.token.symbol,.token.tag{color:#f92672}.token.boolean,.token.number{color:#ae81ff}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#a6e22e}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url,.token.variable{color:#f8f8f2}.token.atrule,.token.attr-value,.token.class-name,.token.function{color:#e6db74}.token.keyword{color:#66d9ef}.token.important,.token.regex{color:#fd971f}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.showReplies{color:#00f;cursor:pointer;font-size:14px;padding:8px 16px}pre{display:block;color:#212529;font-family:Inter}.commentContainerMain{margin:33px 0}#content p{font-family:helvetica;margin:17px 0}#content p,.contentBox{font-size:15pt}.commentContainer{font-size:14pt;font-family:helvetica}.commentError{font-size:10pt;margin:8px}@media screen and (max-width:768px){.commentImg{display:none!important}div.toolbar-item button{margin-right:0}#video-box2 pre code{font-size:10px}pre[class*=language-]{font-size:6pt}img{max-width:100%;height:auto}.contentBox{word-wrap:break-word}#content h1{font-size:27px}}.contentBox img{border:2px solid #e6e6e6;padding:7px;border-radius:12px}h2,h3,h4,h5,h6{margin:25px 0 9px}.commentPre{overflow-x:auto;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}</style><style></style><meta http-equiv="origin-trial" content="A88otRz1Fd3Nt567e2IYshC18LL3KGVXpVJW9oTCId4RYaygt23pbb4JqrbdIO/bwZPWEmRjBIRBu/bZbDR7Pg4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="A0gCLbXCcL0R1Oc8tFPDs0G4Elz17w3zHp+Zst66+D17veE2o7fUcPsA114QtSTRqfVJLMeTSdeWOom0CcyCsgYAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A9RQ+LxFazAousxUwSCzaihJjHLO1UyjQp0teZKHl7WdbVjPDfHSKMd6D/ZI5MTjqClFycbl70EFd7cBJWXqKQEAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A6WKeWsdn1Ct+ZPqS9NCxxaiBoQ7wdTkK2/gE69Yu0gfBKJfo1gOvgkGmf5/xaIajT/RUb9AbnF1FsSZ47cCcQcAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A04ZCu7yjrHgwQJK5ISHhH1DSg0qqowEay3n70KO6wV3D2Mj+OX3Kw20aSMitzgdG1xfrN7sOJV/dZIk+RvCzA4AAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjM0MDgzMTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A88otRz1Fd3Nt567e2IYshC18LL3KGVXpVJW9oTCId4RYaygt23pbb4JqrbdIO/bwZPWEmRjBIRBu/bZbDR7Pg4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="A0gCLbXCcL0R1Oc8tFPDs0G4Elz17w3zHp+Zst66+D17veE2o7fUcPsA114QtSTRqfVJLMeTSdeWOom0CcyCsgYAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A9RQ+LxFazAousxUwSCzaihJjHLO1UyjQp0teZKHl7WdbVjPDfHSKMd6D/ZI5MTjqClFycbl70EFd7cBJWXqKQEAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A6WKeWsdn1Ct+ZPqS9NCxxaiBoQ7wdTkK2/gE69Yu0gfBKJfo1gOvgkGmf5/xaIajT/RUb9AbnF1FsSZ47cCcQcAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2MzQwODMxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A04ZCu7yjrHgwQJK5ISHhH1DSg0qqowEay3n70KO6wV3D2Mj+OX3Kw20aSMitzgdG1xfrN7sOJV/dZIk+RvCzA4AAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjM0MDgzMTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A2YAd4xOntTGygIDjApOTtXOgVI3IWsd5OnOGq3RbRkIQwyqYWNl1JGRAcvtm6VOHDj4n07T/J19VqLuJn3MmQ8AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjMxNjYzOTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A2c5Ux+hivdkLh/KbZUGr6f7SCR0mZrBVfPJ+/OuDVHNwiYv+Lo83b9z5qL8sod78bQl0pSLtbvRWURo+xRl7AIAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjMxNjYzOTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="AzNJ4sd3tVurolpdvWYZ4cmP9Po7RJhEHSqmC3pgxW9fFVZvchhtcMUgHAs97npxMD1jhXHO8s6q6Wy1MMLxKgEAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjMxNjYzOTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="AwfG8hAcHnPa/kJ1Co0EvG/K0F9l1s2JZGiDLt2mhC3QI5Fh4qmsmSwrWObZFbRC9ieDaSLU6lHRxhGUF/i9sgoAAACBeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiSW50ZXJlc3RDb2hvcnRBUEkiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AwQ7dCmHkvR6FuOFxAuNnktYSQrGbL4dF+eBkrwNLALc69Wr//PnO1yzns3pjUoCaYbKHtVcnng2hU+8OUm0PAYAAACHeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiSW50ZXJlc3RDb2hvcnRBUEkiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AysVDPGQTLD/Scn78x4mLwB1tMfje5jwUpAAzGRpWsr1NzoN7MTFhT3ClmImi2svDZA7V6nWGIV8YTPsSRTe0wYAAACHeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiSW50ZXJlc3RDb2hvcnRBUEkiLCJleHBpcnkiOjE2MjYyMjA3OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><link rel="preload" href="https://adservice.google.co.in/adsid/integrator.js?domain=www.codewithharry.com" as="script"><script type="text/javascript" src="https://adservice.google.co.in/adsid/integrator.js?domain=www.codewithharry.com"></script><link rel="preload" href="https://adservice.google.com/adsid/integrator.js?domain=www.codewithharry.com" as="script"><script type="text/javascript" src="https://adservice.google.com/adsid/integrator.js?domain=www.codewithharry.com"></script></head>
+  <body>
+  
+<h1 id="h1_java" align="center" style="font-size: 50px;">PHP Cheatsheet</h1>
+<div class="contentBox"><div><h2>Basics</h2>
+<h3>Hello World</h3>
+<p>echo function is used to display or print output</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">echo</span> <span class="token string double-quoted-string">"Hello World!"</span><span class="token punctuation">;</span> <span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>Comments</h2>
+<p>Commets are used to make the code more understandable for programmer, they are not executed by compiler or interpreter.</p>
+<h3>One Liner</h3>
+<p>This is a singleline comment</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token comment">// Twinkle Twinkle Little Star</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Another One Liner</h3>
+<p>This is a single-line comment</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token comment"># Chocolate dedo mujhe yaar</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Multiline</h3>
+<p>This is a multiline comment</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token comment">/* Code With 
+Harry */</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>Vardump</h2>
+<p>This function dumps information about one or more variables.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token function">var_dump</span><span class="token punctuation">(</span>var1<span class="token punctuation">,</span> var2<span class="token punctuation">,</span> <span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>Variables</h2>
+<p>Variables are "containers" for storing information.</p>
+<h3>Defining Variables</h3>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$Title</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"PHP Cheat Sheet By CodeWithHarry"</span><span class="token punctuation">;</span>
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>Datatypes</h2>
+<p>Datatype is a type of data</p>
+<h3>String</h3>
+<p>A string is a sequence of characters, like "Hello world!".</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"Harry"</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token variable">$x</span><span class="token punctuation">;</span> 
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Integer</h3>
+<p>An integer is a number without any decimal part.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token number">1234</span><span class="token punctuation">;</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Float</h3>
+<p>A float is a number with a decimal point or a number in exponential form.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token number">1.2345</span><span class="token punctuation">;</span> 
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Array</h3>
+<p>An array stores multiple values in one single variable</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$names</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"Harry"</span><span class="token punctuation">,</span><span class="token string double-quoted-string">"Rohan"</span><span class="token punctuation">,</span><span class="token string double-quoted-string">"Shubham"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">var_dump</span><span class="token punctuation">(</span><span class="token variable">$names</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Class</h3>
+<p>A class is a template for objects</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token keyword">class</span> <span class="token class-name">Harry</span><span class="token punctuation">{</span> 
+<span class="token comment">// code goes here... </span>
+<span class="token punctuation">}</span> 
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Object</h3>
+<p>An object is an instance of the class.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token keyword">class</span> <span class="token class-name">Bike</span> <span class="token punctuation">{</span> 
+<span class="token keyword">public</span> <span class="token variable">$color</span><span class="token punctuation">;</span> 
+<span class="token keyword">public</span> <span class="token variable">$model</span><span class="token punctuation">;</span> 
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span><span class="token variable">$color</span><span class="token punctuation">,</span> <span class="token variable">$model</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">color</span> <span class="token operator">=</span> <span class="token variable">$color</span><span class="token punctuation">;</span> 
+<span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">model</span> <span class="token operator">=</span> <span class="token variable">$model</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span> 
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">message</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token keyword">return</span> <span class="token string double-quoted-string">"My bike is a "</span> <span class="token operator">.</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">color</span> <span class="token operator">.</span> <span class="token string double-quoted-string">" "</span> <span class="token operator">.</span> <span class="token variable">$this</span><span class="token operator">-&gt;</span><span class="token property">model</span> <span class="token operator">.</span> <span class="token string double-quoted-string">"!"</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span> 
+<span class="token punctuation">}</span> 
+
+<span class="token variable">$myBike</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Bike</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"red"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"Honda"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token variable">$myBike</span> <span class="token operator">-&gt;</span> <span class="token function">message</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>Escape Characters</h2>
+<p>Escape sequences are used for escaping a character during string parsing. It is also used for giving special meaning to represent line breaks, tabs, alerts and more.</p>
+<h3>Line feed</h3>
+<p>It adds a newline</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php">\n</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Carriage return</h3>
+<p>It inserts a carriage return in the text at this point.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php">\r</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Horizontal tab</h3>
+<p>It gives a horizontal tab space</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php">\t</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Vertical tab</h3>
+<p>It gives a vertical tab space</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php">\v</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Escape</h3>
+<p>It is used for escape characters</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php">\e</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Form feed</h3>
+<p>It is commonly used as page separators but now is also used as section separators.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php">\f</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Backslash</h3>
+<p>It adds a backslash</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php">\\</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Dollar sign</h3>
+<p>Print the next character as a dollar, not as part of a variable</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php">\$</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Single quote</h3>
+<p>Print the next character as a single quote, not a string closer</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php">\'</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Double quote</h3>
+<p>Print the next character as a double quote, not a string closer</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php">\"</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>Operators</h2>
+<p>Operators are symbols that tell the compiler or interpreter to perform specific mathematical or logical manipulations. These are of several types.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>Arithmetic Operators</h2>
+<h3>Addition</h3>
+<p>Sum of $x and $y</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">+</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>&nbsp;</h2>
+<h3>Subtraction</h3>
+<p>Difference of $x and $y</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">-</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Multiplication</h3>
+<p>Product of $x and $y</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">*</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Division</h3>
+<p>Quotient of $x and $y</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">/</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Modulus</h3>
+<p>The remainder of $x divided by $y</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">%</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Exponentiation</h3>
+<p>Result of raising $x to the $y'th power</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">**</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>PHP Assignment Operators</h2>
+<p>The PHP assignment operators are used with numeric values to write a value to a variable.</p>
+<h3>x = y</h3>
+<p>The left operand gets set to the value of the expression on the right</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php">x <span class="token operator">=</span> y</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>x += y</h3>
+<p>Addition</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php">x <span class="token operator">=</span> x <span class="token operator">+</span> y</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>x -= y</h3>
+<p>Subtraction</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php">x <span class="token operator">=</span> x <span class="token operator">-</span> y</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>x *= y</h3>
+<p>Multiplication</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php">x <span class="token operator">=</span> x <span class="token operator">*</span> y</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>x /= y</h3>
+<p>Division</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php">x <span class="token operator">=</span> x <span class="token operator">/</span> y</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>x %= y</h3>
+<p>Modulus</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php">x <span class="token operator">=</span> x <span class="token operator">%</span> y</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>PHP Comparison Operators</h2>
+<h3>Equal</h3>
+<p>Returns true if $x is equal to $y</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">==</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Identical</h3>
+<p>Returns true if $x is equal to $y, and they are of the same type</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">===</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Not equal</h3>
+<p>Returns true if $x is not equal to $y</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">!=</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Not equal</h3>
+<p>Returns true if $x is not equal to $y</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">&lt;</span><span class="token operator">&gt;</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Not identical</h3>
+<p>Returns true if $x is not equal to $y, or they are not of the same type</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">!==</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Greater than</h3>
+<p>Returns true if $x is greater than $y</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">&gt;</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Less than</h3>
+<p>Returns true if $x is less than $y</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">&lt;</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Greater than or equal to</h3>
+<p>Returns true if $x is greater than or equal to $y</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">&gt;=</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Less than or equal to</h3>
+<p>Returns true if $x is less than or equal to $y</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">&lt;=</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>PHP Increment / Decrement Operators</h2>
+<h3>Pre-increment</h3>
+<p>Increments $x by one, then returns $x</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token operator">=</span><span class="token operator">++</span><span class="token variable">$x</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Post-increment</h3>
+<p>Returns $x, then increments $x by one</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span><span class="token operator">++</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Pre-decrement</h3>
+<p>Decrements $x by one, then returns $x</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token operator">--</span><span class="token variable">$x</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Post-decrement</h3>
+<p>Returns $x, then decrements $x by one</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span><span class="token operator">--</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>PHP Logical Operators</h2>
+<h3>And</h3>
+<p>True if both $x and $y are true</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token keyword">and</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Or</h3>
+<p>True if either $x or $y is true</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token keyword">or</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Xor</h3>
+<p>True if either $x or $y is true, but not both</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token keyword">xor</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>And</h3>
+<p>True if both $x and $y are true</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Or</h3>
+<p>True if either $x or $y is true</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">||</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Not</h3>
+<p>True if $x is not true</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token operator">!</span><span class="token variable">$x</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p></p></div><div><div><p></p>
+<h2>PHP String Operators</h2>
+<h3>Concatenation</h3>
+<p>Concatenation of $txt1 and $txt2</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$txt1</span> <span class="token operator">.</span> <span class="token variable">$txt2</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Concatenation assignment</h3>
+<p>Appends $txt2 to $txt1</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$txt1</span> <span class="token operator">.=</span> <span class="token variable">$txt2</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>PHP Array Operators</h2>
+<h3>Union</h3>
+<p>Union of $x and $y</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">+</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Equality</h3>
+<p>Returns true if $x and $y have the same key/value pairs</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">==</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Identity</h3>
+<p>Returns true if $x and $y have the same key/value pairs in the same order and of the same types</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">===</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Inequality</h3>
+<p>Returns true if $x is not equal to $y</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">!=</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Inequality</h3>
+<p>Returns true if $x is not equal to $y</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">&lt;</span><span class="token operator">&gt;</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Non-identity</h3>
+<p>Returns true if $x is not identical to $y</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">!==</span> <span class="token variable">$y</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>PHP Conditional Assignment Operators</h2>
+<h3>Ternary</h3>
+<p>Returns the value of $x. The value of $x is expr2 if expr1 = TRUE. The value of $x is expr3 if expr1 = FALSE</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$x</span> <span class="token operator">=</span> expr1 <span class="token operator">?</span> <span class="token argument-name">expr2</span> <span class="token punctuation">:</span> expr3</code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>Conditional Statements</h2>
+<p>Conditional statements are used to perform operations based on some condition.</p>
+<h3>If Statement</h3>
+<p>if statement checks the condition and if it is True, then the block of if statement executes; otherwise, control skips that block of code.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span>condition<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token comment">// code to execute if condition is met </span>
+<span class="token punctuation">}</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>If..Else</h3>
+<p>if the condition of if block evaluates to True, then if block executes otherwise else block executes</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span>condition<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token comment">// code to execute if condition is met </span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> 
+<span class="token comment">// code to execute if condition is not met </span>
+<span class="token punctuation">}</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>If..Elseif..Else</h3>
+<p>It executes different codes for more than two conditions</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span>condition<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token comment">// code to execute if condition is met </span>
+<span class="token punctuation">}</span> <span class="token keyword">elseif</span> <span class="token punctuation">(</span>condition<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token comment">// code to execute if this condition is met </span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> 
+<span class="token comment">// code to execute if none of the conditions are met </span>
+<span class="token punctuation">}</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Switch Statement</h3>
+<p>It allows a variable to be tested for equality against a list of values (cases).</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token keyword">switch</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token keyword">case</span> <span class="token argument-name">x</span><span class="token punctuation">:</span> 
+code to execute <span class="token keyword">if</span> n<span class="token operator">=</span>x<span class="token punctuation">;</span> 
+<span class="token keyword">break</span><span class="token punctuation">;</span> 
+<span class="token keyword">case</span> <span class="token argument-name">y</span><span class="token punctuation">:</span> 
+code to execute <span class="token keyword">if</span> n<span class="token operator">=</span>y<span class="token punctuation">;</span> 
+<span class="token keyword">break</span><span class="token punctuation">;</span> 
+<span class="token keyword">case</span> <span class="token argument-name">z</span><span class="token punctuation">:</span> 
+code to execute <span class="token keyword">if</span> n<span class="token operator">=</span>z<span class="token punctuation">;</span> 
+<span class="token keyword">break</span><span class="token punctuation">;</span> 
+<span class="token comment">// add more cases as needed </span>
+<span class="token keyword">default</span><span class="token punctuation">:</span> 
+code to execute <span class="token keyword">if</span> n is neither of the above<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>Loops</h2>
+<p>Iterative statements or Loops facilitate programmers to execute any block of code lines repeatedly.</p>
+<h3>For Loop</h3>
+<p>It is used to iterate the statements several times. It is frequently used to traverse the data structures like the array and linked list.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token keyword">for</span> <span class="token punctuation">(</span>starting counter value<span class="token punctuation">;</span> ending counter value<span class="token punctuation">;</span> increment by which 
+to increase<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token comment">// code to execute goes here </span>
+<span class="token punctuation">}</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Foreach Loop</h3>
+<p>The foreach loop loops through a block of code for each element in an array.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$InsertYourArrayName</span> <span class="token keyword">as</span> <span class="token variable">$value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token comment">// code to execute goes here </span>
+<span class="token punctuation">}</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>While Loop</h3>
+<p>It iterate the block of code as long as a specified condition is True or vice versa</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token keyword">while</span> <span class="token punctuation">(</span>condition that must apply<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token comment">// code to execute goes here </span>
+<span class="token punctuation">}</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>Do-While Loop</h3>
+<p>This loop is very similar to the while loop with one difference, i.e., the body of the do-while loop is executed at least once even if the condition is False. It is an exit-controlled loop.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token keyword">do</span> <span class="token punctuation">{</span> 
+<span class="token comment">// code to execute goes here; </span>
+<span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>condition that must apply<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>Predefined Variables</h2>
+<p>PHP provides a large number of predefined variables to all scripts. The variables represent everything from external variables to built-in environment variables, last error messages etc. All this information is defined in some predefined variables.</p>
+<h3>$GLOBALS</h3>
+<p>$GLOBALS is a PHP super global variable which is used to access global variables from anywhere in the PHP script.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span> 
+<span class="token variable">$b</span> <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span> 
+
+<span class="token keyword">function</span> <span class="token function">addition</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'c'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'a'</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span> 
+<span class="token function">addition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token variable">$c</span><span class="token punctuation">;</span> 
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>$_SERVER</h3>
+<p>Returns the filename of the currently executing script. $_SERVER is a PHP super global variable which holds information about headers, paths, and script locations.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'PHP_SELF'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the version of the Common Gateway Interface (CGI) the server is using</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'GATEWAY_INTERFACE'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the IP address of the host server</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'SERVER_ADDR'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the name of the host server (such as www.codewithharry.com)</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'SERVER_NAME'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the server identification string (such as Apache/2.2.24)</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'SERVER_SOFTWARE'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the name and revision of the information protocol (such as HTTP/1.1)</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'SERVER_PROTOCOL'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the request method used to access the page (such as POST)</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'REQUEST_METHOD'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the timestamp of the start of the request (such as 1377687496)</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'REQUEST_TIME'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the query string if the page is accessed via a query string</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'QUERY_STRING'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the Accept header from the current request</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'HTTP_ACCEPT'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the Accept_Charset header from the current request (such as utf-8,ISO-8859-1)</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'HTTP_ACCEPT_CHARSET'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the Host header from the current request</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'HTTP_HOST'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the complete URL of the current page (not reliable because not all user-agents support it)</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'HTTP_REFERER'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Is the script queried through a secure HTTP protocol?</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'HTTPS'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the IP address from where the user is viewing the current page</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'REMOTE_ADDR'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the Hostname from where the user is viewing the current page</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'REMOTE_HOST'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the port being used on the user's machine to communicate with the web server</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'REMOTE_PORT'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the absolute pathname of the currently executing script</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'SCRIPT_FILENAME'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the value given to the SERVER_ADMIN directive in the web server configuration file (if your script runs on a virtual host, it will be the value defined for that virtual host) (such as someone@codewithharry.com)</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'SERVER_ADMIN'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the port on the server machine being used by the webserver for communication (such as 80)</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'SERVER_PORT'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the server version and virtual hostname which are added to server-generated pages</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'SERVER_SIGNATURE'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the file system based path to the current script</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'PATH_TRANSLATED'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the path of the current script</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'SCRIPT_NAME'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>Returns the URI of the current page</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'SCRIPT_URI'</span><span class="token punctuation">]</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>$_GET</h3>
+<p>PHP $_GET is a PHP super global variable which is used to collect form data after submitting an HTML form with method="get".</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token keyword">echo</span> <span class="token string double-quoted-string">"Hello"</span> <span class="token operator">.</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'Example'</span><span class="token punctuation">]</span> <span class="token operator">.</span> <span class="token string double-quoted-string">" at "</span> <span class="token operator">.</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'web'</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>$_POST</h3>
+<p>PHP $_POST is a PHP super global variable which is used to collect form data after submitting an HTML form with method="post". $_POST is also widely used to pass variables.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">echo</span> <span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'PHP_SELF'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token delimiter important">?&gt;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+Name: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>fname<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
+<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"REQUEST_METHOD"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string double-quoted-string">"POST"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token variable">$name</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'fname'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">echo</span> <span class="token string double-quoted-string">"Please Enter your name"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+<span class="token keyword">echo</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter important">?&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>$_REQUEST</h3>
+<p>PHP $_REQUEST is a PHP super global variable which is used to collect data after submitting an HTML form.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token keyword">echo</span> <span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'PHP_SELF'</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token delimiter important">?&gt;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+Name: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>fname<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
+<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"REQUEST_METHOD"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string double-quoted-string">"POST"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token variable">$name</span> <span class="token operator">=</span> <span class="token variable">$_REQUEST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'fname'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$name</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">echo</span> <span class="token string double-quoted-string">"Name is empty"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+<span class="token keyword">echo</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter important">?&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p></p></div><app-adsense adtype="ad" _nghost-serverapp-c29=""><div _ngcontent-serverapp-c29="" class="text-center"><div _ngcontent-serverapp-c29="" class="text-center"><ins _ngcontent-serverapp-c29="" data-ad-client="ca-pub-9655830461045889" data-ad-slot="7409118598" class="adsbygoogle" style="display: inline-block; width: 250px; height: 200px;" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="border: none; height: 200px; width: 250px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_2_anchor" style="border: none; height: 200px; width: 250px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"></ins></ins></ins></div><!----><!----><!----><!----></div></app-adsense></div><div><div><p></p>
+<h2>Variable-handling Functions</h2>
+<p>The PHP variable handling functions are part of the PHP core. No installation is required to use these functions.</p>
+<h3>boolval</h3>
+<p>Boolval is used to get the boolean value of a variable</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token keyword">echo</span> <span class="token string single-quoted-string">'0: '</span><span class="token operator">.</span><span class="token punctuation">(</span><span class="token function">boolval</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string single-quoted-string">'true'</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">'false'</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">"\n"</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token string single-quoted-string">'42: '</span><span class="token operator">.</span><span class="token punctuation">(</span><span class="token function">boolval</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string single-quoted-string">'true'</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">'false'</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">"\n"</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token string single-quoted-string">'0.0: '</span><span class="token operator">.</span><span class="token punctuation">(</span><span class="token function">boolval</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string single-quoted-string">'true'</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">'false'</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">"\n"</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token string single-quoted-string">'4.2: '</span><span class="token operator">.</span><span class="token punctuation">(</span><span class="token function">boolval</span><span class="token punctuation">(</span><span class="token number">4.2</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string single-quoted-string">'true'</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">'false'</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">"\n"</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token string single-quoted-string">'"": '</span><span class="token operator">.</span><span class="token punctuation">(</span><span class="token function">boolval</span><span class="token punctuation">(</span><span class="token string double-quoted-string">""</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string single-quoted-string">'true'</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">'false'</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">"\n"</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token string single-quoted-string">'"string": '</span><span class="token operator">.</span><span class="token punctuation">(</span><span class="token function">boolval</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"string"</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string single-quoted-string">'true'</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">'false'</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">"\n"</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token string single-quoted-string">'"0": '</span><span class="token operator">.</span><span class="token punctuation">(</span><span class="token function">boolval</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"0"</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string single-quoted-string">'true'</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">'false'</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">"\n"</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token string single-quoted-string">'"1": '</span><span class="token operator">.</span><span class="token punctuation">(</span><span class="token function">boolval</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"1"</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string single-quoted-string">'true'</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">'false'</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">"\n"</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token string single-quoted-string">'[1, 2]: '</span><span class="token operator">.</span><span class="token punctuation">(</span><span class="token function">boolval</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string single-quoted-string">'true'</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">'false'</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">"\n"</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token string single-quoted-string">'[]: '</span><span class="token operator">.</span><span class="token punctuation">(</span><span class="token function">boolval</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string single-quoted-string">'true'</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">'false'</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">"\n"</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token string single-quoted-string">'stdClass: '</span><span class="token operator">.</span><span class="token punctuation">(</span><span class="token function">boolval</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">stdClass</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string single-quoted-string">'true'</span> <span class="token punctuation">:</span> <span class="token string single-quoted-string">'false'</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string double-quoted-string">"\n"</span><span class="token punctuation">;</span> 
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>isset</h3>
+<p>It is used to check whether a variable is empty. It also checks whether the variable is set/declared:</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token variable">$x</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> 
+<span class="token comment">// True because $x is set </span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token keyword">echo</span> <span class="token string double-quoted-string">"Variable 'x' is set"</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span> 
+</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>unset</h3>
+<p>It unsets variables.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"Namaste world!"</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token string double-quoted-string">"The value of 'a' before unset: "</span> <span class="token operator">.</span> <span class="token variable">$a</span> <span class="token punctuation">;</span> 
+<span class="token keyword">unset</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token string double-quoted-string">"The value of 'a' after unset: "</span> <span class="token operator">.</span> <span class="token variable">$a</span><span class="token punctuation">;</span> 
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>debug_zval_dump</h3>
+<p>debug_zval_dump is used to dump a string representation of an internal zval structure to output</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token variable">$var1</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'Hello'</span><span class="token punctuation">;</span> 
+<span class="token variable">$var1</span> <span class="token operator">.=</span> <span class="token string single-quoted-string">' World'</span><span class="token punctuation">;</span> 
+<span class="token variable">$var2</span> <span class="token operator">=</span> <span class="token variable">$var1</span><span class="token punctuation">;</span> 
+
+<span class="token function">debug_zval_dump</span><span class="token punctuation">(</span><span class="token variable">$var1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>empty</h3>
+<p>Empty is used to check whether a variable is empty or not.</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token variable">$var</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> 
+
+<span class="token comment">// Evaluates to true because $var is empty </span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$var</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token keyword">echo</span> <span class="token string single-quoted-string">'$var is either 0, empty, or not set at all'</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span> 
+
+<span class="token comment">// Evaluates as true because $var is set </span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$var</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token keyword">echo</span> <span class="token string single-quoted-string">'$var is set even though it is empty'</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span> 
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>floatval</h3>
+<p>It returns the float value of different variables:</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token variable">$var</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'122.34343The'</span><span class="token punctuation">;</span> 
+<span class="token variable">$float_value_of_var</span> <span class="token operator">=</span> <span class="token function">floatval</span><span class="token punctuation">(</span><span class="token variable">$var</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token variable">$float_value_of_var</span><span class="token punctuation">;</span> <span class="token comment">// 122.34343 </span>
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>get_defined_vars</h3>
+<p>It returns all defined variables, as an array:</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token variable">$b</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+<span class="token variable">$arr</span> <span class="token operator">=</span> <span class="token function">get_defined_vars</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+<span class="token comment">// print $b </span>
+<span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"b"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+<span class="token comment">/* print path to the PHP interpreter (if used as a CGI) 
+* e.g. /usr/local/bin/php */</span> 
+<span class="token keyword">echo</span> <span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"_"</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 
+
+<span class="token comment">// print the command-line parameters if any </span>
+<span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"argv"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+<span class="token comment">// print all the server vars </span>
+<span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"_SERVER"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+<span class="token comment">// print all the available keys for the arrays of variables </span>
+<span class="token function">print_r</span><span class="token punctuation">(</span><span class="token function">array_keys</span><span class="token punctuation">(</span><span class="token function">get_defined_vars</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>get_resource_type</h3>
+<p>It returns the resource type:</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token comment">// prints: stream </span>
+<span class="token variable">$fp</span> <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"foo"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token function">get_resource_type</span><span class="token punctuation">(</span><span class="token variable">$fp</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string double-quoted-string">"\n"</span><span class="token punctuation">;</span> 
+
+<span class="token comment">// prints: curl </span>
+<span class="token variable">$c</span> <span class="token operator">=</span> <span class="token function">curl_init </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token function">get_resource_type</span><span class="token punctuation">(</span><span class="token variable">$c</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string double-quoted-string">"\n"</span><span class="token punctuation">;</span> <span class="token comment">// works prior to PHP 8.0.0 as since 8.0 curl_init returns a CurlHandle object </span>
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>gettype</h3>
+<p>It returns the type of different variables:</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token function">gettype</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span> <span class="token punctuation">;</span> 
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>intval</h3>
+<p>It returns the integer value of different variables:</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token keyword">echo</span> <span class="token function">intval</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>is_array</h3>
+<p>To check whether a variable is an array or not:</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+<span class="token variable">$a</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"Hello"</span><span class="token punctuation">;</span> 
+<span class="token keyword">echo</span> <span class="token string double-quoted-string">"a is "</span> <span class="token operator">.</span> <span class="token function">is_array</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span> <span class="token punctuation">;</span><span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>Array</h2>
+<p>An array stores multiple values in one single variable.</p>
+<h3>Declaring an Array</h3>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$cms</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"Harry"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"Lovish"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"Rohan"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string double-quoted-string">"Who needs chocolate? Is it"</span> <span class="token operator">.</span> <span class="token variable">$cms</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">.</span> <span class="token string double-quoted-string">", "</span> <span class="token operator">.</span>
+<span class="token variable">$cms</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">.</span> <span class="token string double-quoted-string">" or "</span> <span class="token operator">.</span> <span class="token variable">$cms</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">.</span> <span class="token string double-quoted-string">"?"</span><span class="token punctuation">;</span>
+<span class="token delimiter important">?&gt;</span></span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>Functions</h2>
+<p>A function is a block of statements that can be used repeatedly in a program</p>
+<h3>Defining Functions</h3>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token keyword">function</span> <span class="token function">NameOfTheFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+<span class="token comment">//place PHP code here </span>
+<span class="token punctuation">}</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h2>MySQLi Functions</h2>
+<p>These functions allow you to access MySQL database server.</p>
+<h3>mysqli_connect() Function</h3>
+<p>It opens a non-persistent MySQL connection</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token function">mysqli_connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>mysqli_affected_rows() Function</h3>
+<p>It returns the number of affected rows</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token function">mysqli_affected_rows</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>mysqli_connect_error() Function</h3>
+<p>It shows the Error description for the connection error</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token function">mysqli_connect_error</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>mysqli_fetch_all() Function</h3>
+<p>It fetches all result rows as an array</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token function">mysqli_fetch_all</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>mysqli_fetch_array() Function</h3>
+<p>It fetches a result row as an associative, a numeric array, or both</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token function">mysqli_fetch_array</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>mysqli_fetch_assoc() Function</h3>
+<p>It fetches a result row as an associative array</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token function">mysqli_fetch_assoc</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>mysqli_fetch_row() Function</h3>
+<p>It fetches one row from a result set and returns it as an enumerated array</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token function">mysqli_fetch_row</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>mysqli_kill() Function</h3>
+<p>It kills a MySQL thread</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token function">mysqli_kill</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<h3>mysqli_close() Function</h3>
+<p>It closes a database connection</p>
+<div class="code-toolbar"><pre class=" language-php"><code class=" language-php"><span class="token function">mysqli_close</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre><div class="toolbar"><div class="toolbar-item"><button type="button">Copy</button></div></div></div>
+<p>&nbsp;</p>
+<div><a class="btn btn-danger" role="button" href="https://api.codewithharry.com/media/blogFiles/php-cheatsheet/PHP_Cheatsheet_CodeWithHarry.pdf" target="_blank" rel="noopener"> Download this Cheatsheet</a></div>
+<div>&nbsp;</div>
+<div>&nbsp;</div></div><app-adsense adtype="ad" _nghost-serverapp-c29=""><div _ngcontent-serverapp-c29="" class="text-center"><div _ngcontent-serverapp-c29="" class="text-center"><ins _ngcontent-serverapp-c29="" data-ad-client="ca-pub-9655830461045889" data-ad-slot="7409118598" class="adsbygoogle" style="display: inline-block; width: 250px; height: 200px;" data-adsbygoogle-status="done"><ins id="aswift_3_expand" style="border: none; height: 200px; width: 250px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;"><ins id="aswift_3_anchor" style="border: none; height: 200px; width: 250px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"></ins></ins></ins></div><!----><!----><!----><!----></div></app-adsense></div><!----><!----><!----></div>
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    
+  </body>
+</html>

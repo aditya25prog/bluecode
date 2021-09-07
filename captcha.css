@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+ background-color: #232331;
+ font-family: 'Roboto', sans-serif;
+}
+#captchaBackground {
+ height: 220px;
+ width: 250px;
+ background-color: #2d3748;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+}
+#captchaHeading {
+ color: white;
+}
+#captcha {
+ height: 80%;
+ width: 80%;
+ font-size: 30px;
+ letter-spacing: 3px;
+ margin: auto;
+ display: block;
+ top: 0;
+ bottom: 0;
+ left: 0;
+ right: 0;
+}
+.center {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+#submitButton {
+ margin-top: 2em;
+ margin-bottom: 2em;
+ background: none;
+ border: 0px;
+
+ padding: 7px;
+ border: 2px solid #08e5ff;
+ border-radius: 5px;
+ cursor: pointer;
+}
+#refreshButton {
+ background: none;
+ border: 0px;
+ 
+ border: 2px solid #08e5ff;
+ padding: 7px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#textBox {
+ height: 25px;
+}
+.incorrectCaptcha {
+ color: #FF0000;
+}
+.correctCaptcha {
+ color: #7FFF00;
+}
+#submitButton:hover, #refreshButton:hover{
+    background: white;
+    color: black;
+    opacity: 0.5;
+    transition-duration: 0.5s;
+}

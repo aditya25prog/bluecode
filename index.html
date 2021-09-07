@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <title>BlueCode</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html"><img src="logo.png" alt="" width="30" height="30" class="d-inline-block align-text-top">         BlueCode</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="php.html">Learn PHP</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://codesem.blogspot.com/">Blog</a>
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            More Courses
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="https://hackingprabhu.blogspot.com/">Learn Ethical hacking</a></li>
+            <li><a class="dropdown-item" href="python.html">Learn Python</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="java.html">Learn Java</a></li>
+          </ul>
+        </li>
+        
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-danger" type="submit">Search</button>
+
+      </form>
+
+    </div>
+    <button id="modals" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#loginModal">Sign In</button>
+    <form action="#sign_up">
+    <button id="modals" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</button></form>
+  </div>
+</nav>
+
+
+
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login to BlueCode</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Keep me logged in</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Sign In</button>
+</form>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!--Sign Up Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign Up with BlueCode</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="captcha.html">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Phone Number</label>
+    <input type="text" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Full Name</label>
+    <input type="text" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Receive updates and notifications</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Sign Up with us</button>
+</form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/c1.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Learn coding for free</h5>
+        <button type="button" class="btn btn-primary">Learn Go Lang</button>
+<button type="button" class="btn btn-danger">Learn machine learing</button>
+<button type="button" class="btn btn-success">Learn Blockchain</button>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/c2.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Learn cyber security and pen testing for free</h5>
+       <button type="button" class="btn btn-primary">Learn Go Lang</button>
+<button type="button" class="btn btn-danger">Learn machine learing</button>
+<button type="button" class="btn btn-success">Learn Blockchain</button>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/c3.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Award winning website</h5>
+        <button type="button" class="btn btn-primary">Learn Go Lang</button>
+<button type="button" class="btn btn-danger">Learn machine learing</button>
+<button type="button" class="btn btn-success">Learn Blockchain</button>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="container">
+  <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 align="center" class="fw-light">Welcome to BlueCode</h1>
+        <p align="center" class="lead text-muted">BlueCode is the best platform for learing coding and pen testing that you can find on the web. It is a great platform for beginners as well as for professionals. Thank you :D</p>
+        <p><div class="buttons_of_sec_jumbo">
+          <a href="https://hackingprabhu.blogspot.com/" class="btn btn-primary my-2">Learn Pentesting</a>
+          <a href="https://codesem.blogspot.com/" class="btn btn-danger my-2">Learn coding</a></div>
+        </p>
+      </div>
+    </div>
+</div>
+<div class="py-5 bg-dark">
+      <h1 align="center" class="display-5 fw-bold text-white">W3 Schools</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="fs-5 mb-4 text-white">W3 Schools is an amazing platform for coding study for absolute beginners and even for professionals. Many concepts and languages are being taught. Cyber Security concepts are also taught upto an extent. Please visit https://www.w3schools.com/</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <form id="wform" action="https://www.w3schools.com/"><button type="submit" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Visit W3Schools</button></form>
+          
+        </div>
+      </div>
+    </div>
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5" id="sign_up">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 mb-3">Sign In to BlueCode</h1>
+        <p class="col-lg-10 fs-4">Sign In with us to get the most productive content</p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form class="p-4 p-md-5 border rounded-3 bg-light">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me">  Keep me logged in
+            </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign In</button>
+          <hr class="my-4">
+          <small class="text-muted">We'll never share your email with anyone</small>
+        </form>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
